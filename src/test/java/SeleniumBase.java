@@ -12,7 +12,7 @@ public abstract class SeleniumBase {
 
     @Before
     public void setUp() {
-        driver = getWebDriver("CHROME");
+        driver = getWebDriver("YANDEX");
         Assert.assertNotNull("Ошибка инициализации WebDriver", driver);
         driver.get("https://stellarburgers.nomoreparties.site/");
     }

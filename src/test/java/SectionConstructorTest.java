@@ -26,14 +26,17 @@ public class SectionConstructorTest extends SeleniumBase {
         String expectedResult = "Соусы";
 
         WebElement scrollElement = driver.findElement(By.className("BurgerIngredients_ingredients__menuContainer__Xu3Mo"));
-        Long initialScrollTop = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        Number initialScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        long initialScrollTop = initialScrollTopNumber.longValue();
 
         homePage.clickLinkSauce();
+
         // Ожидание завершения прокрутки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((ExpectedCondition<Boolean>) d -> {
-            Long newScrollTop1 = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
-            return newScrollTop1 > initialScrollTop; // Ждем, пока значение scrollTop увеличится
+            Number newScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+            long newScrollTop = newScrollTopNumber.longValue(); // Преобразуем в long
+            return newScrollTop > initialScrollTop; // Ждем, пока значение scrollTop увеличится
         });
 
         assertEquals(expectedResult, firstVisibleIngredient());
@@ -46,8 +49,10 @@ public class SectionConstructorTest extends SeleniumBase {
     public void transitionSauceMainTest() {
         HomePage homePage = new HomePage(driver);
         String expectedResult = "Начинки";
+
         WebElement scrollElement = driver.findElement(By.className("BurgerIngredients_ingredients__menuContainer__Xu3Mo"));
-        Long initialScrollTop = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        Number initialScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        long initialScrollTop = initialScrollTopNumber.longValue();
 
         homePage.clickLinkSauce();
         homePage.clickLinkMain();
@@ -55,8 +60,9 @@ public class SectionConstructorTest extends SeleniumBase {
         // Ожидание завершения прокрутки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((ExpectedCondition<Boolean>) d -> {
-            Long newScrollTop1 = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
-            return newScrollTop1 > initialScrollTop; // Ждем, пока значение scrollTop увеличится
+            Number newScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+            long newScrollTop = newScrollTopNumber.longValue(); // Преобразуем в long
+            return newScrollTop > initialScrollTop; // Ждем, пока значение scrollTop увеличится
         });
 
         assertEquals(expectedResult, firstVisibleIngredient());
@@ -69,15 +75,20 @@ public class SectionConstructorTest extends SeleniumBase {
     public void transitionBunMainTest() {
         HomePage homePage = new HomePage(driver);
         String expectedResult = "Начинки";
+
         WebElement scrollElement = driver.findElement(By.className("BurgerIngredients_ingredients__menuContainer__Xu3Mo"));
-        Long initialScrollTop = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        Number initialScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        long initialScrollTop = initialScrollTopNumber.longValue();
+
         homePage.clickLinkMain();
         // Ожидание завершения прокрутки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((ExpectedCondition<Boolean>) d -> {
-            Long newScrollTop1 = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
-            return newScrollTop1 > initialScrollTop; // Ждем, пока значение scrollTop увеличится
+            Number newScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+            long newScrollTop = newScrollTopNumber.longValue(); // Преобразуем в long
+            return newScrollTop > initialScrollTop; // Ждем, пока значение scrollTop увеличится
         });
+
         assertEquals(expectedResult, firstVisibleIngredient());
     }
 
@@ -88,16 +99,21 @@ public class SectionConstructorTest extends SeleniumBase {
     public void transitionSauceBunTest() {
         HomePage homePage = new HomePage(driver);
         String expectedResult = "Булки";
+
         WebElement scrollElement = driver.findElement(By.className("BurgerIngredients_ingredients__menuContainer__Xu3Mo"));
-        Long initialScrollTop = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        Number initialScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        long initialScrollTop = initialScrollTopNumber.longValue();
+
         homePage.clickLinkSauce();
         homePage.clickLinkBun();
         // Ожидание завершения прокрутки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((ExpectedCondition<Boolean>) d -> {
-            Long newScrollTop1 = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
-            return newScrollTop1 > initialScrollTop; // Ждем, пока значение scrollTop увеличится
+            Number newScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+            long newScrollTop = newScrollTopNumber.longValue(); // Преобразуем в long
+            return newScrollTop > initialScrollTop; // Ждем, пока значение scrollTop увеличится
         });
+
         assertEquals(expectedResult, firstVisibleIngredient());
     }
 
@@ -108,16 +124,21 @@ public class SectionConstructorTest extends SeleniumBase {
     public void transitionMainBunTest() {
         HomePage homePage = new HomePage(driver);
         String expectedResult = "Булки";
+
         WebElement scrollElement = driver.findElement(By.className("BurgerIngredients_ingredients__menuContainer__Xu3Mo"));
-        Long initialScrollTop = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        Number initialScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        long initialScrollTop = initialScrollTopNumber.longValue();
+
         homePage.clickLinkMain();
         homePage.clickLinkBun();
         // Ожидание завершения прокрутки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((ExpectedCondition<Boolean>) d -> {
-            Long newScrollTop1 = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
-            return newScrollTop1 > initialScrollTop; // Ждем, пока значение scrollTop увеличится
+            Number newScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+            long newScrollTop = newScrollTopNumber.longValue(); // Преобразуем в long
+            return newScrollTop > initialScrollTop; // Ждем, пока значение scrollTop увеличится
         });
+
         assertEquals(expectedResult, firstVisibleIngredient());
     }
 
@@ -128,16 +149,21 @@ public class SectionConstructorTest extends SeleniumBase {
     public void transitionMainSauceTest() {
         HomePage homePage = new HomePage(driver);
         String expectedResult = "Соусы";
+
         WebElement scrollElement = driver.findElement(By.className("BurgerIngredients_ingredients__menuContainer__Xu3Mo"));
-        Long initialScrollTop = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        Number initialScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+        long initialScrollTop = initialScrollTopNumber.longValue();
+
         homePage.clickLinkMain();
         homePage.clickLinkSauce();
         // Ожидание завершения прокрутки
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((ExpectedCondition<Boolean>) d -> {
-            Long newScrollTop1 = (Long) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
-            return newScrollTop1 > initialScrollTop; // Ждем, пока значение scrollTop увеличится
+            Number newScrollTopNumber = (Number) ((JavascriptExecutor) driver).executeScript("return arguments[0].scrollTop;", scrollElement);
+            long newScrollTop = newScrollTopNumber.longValue(); // Преобразуем в long
+            return newScrollTop > initialScrollTop; // Ждем, пока значение scrollTop увеличится
         });
+
         assertEquals(expectedResult, firstVisibleIngredient());
     }
 

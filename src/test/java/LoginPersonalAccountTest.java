@@ -23,7 +23,7 @@ public class LoginPersonalAccountTest extends SeleniumBase {
 
     @Before
     public void setUp() {
-        driver = getWebDriver("CHROME");
+        driver = getWebDriver("YANDEX");
         Assert.assertNotNull("Ошибка инициализации WebDriver", driver);
         driver.get("https://stellarburgers.nomoreparties.site/");
         int expectedStatusCode = 200; // код ответа при успешном создании пользователя
